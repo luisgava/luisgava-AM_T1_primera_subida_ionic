@@ -1,0 +1,25 @@
+<app-cabecera titulo='Titulo de la cabecera, p.2'></app-cabecera>
+<ion-content>
+  <p>
+    <ion-button color="dark" routerLink="/pagina1">Pagina1</ion-button>
+    
+  </p>
+  <table border="1" align="center">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>DNI</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas"> <!--sirve para repetir un array de cosas, en este caso datos-->
+        <td>{{persona.nombre}}</td>
+        <td>{{persona.apellido}}</td>
+        <td>{{persona.dni}}</td>
+      </tr> 
+    </tbody>
+  </table>
+  <ion-button color="danger" round (click)="abrirYoube()">Event binding: abrir YouTube</ion-button>
+  <ion-button (click)="presentToast()">Tostada ion-toast</ion-button>
+</ion-content>

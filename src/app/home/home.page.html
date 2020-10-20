@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Este es un título </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Not really ;)</p>
+
+    <p>
+      Start with Ionic
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://ionicframework.com/docs/components"
+        >UI Components</a
+      >
+    </p>
+
+    <p>My name variable is: {{name}}</p>
+    <ion-input value="{{name}}">Nombre: </ion-input>
+
+    <p><a [href]="url"> prueba property binding</a></p>
+    <!--coge la url de home.page.ts-->
+    <p><a href="{{url}}">prueba dos</a></p>
+
+    <p><input disabled type="text" value="hola" /></p>
+    <p><input disabled="false" type="text" value="hola" /></p>
+    <p><input disabled="{{activo}}" type="text" value="hola" /></p>
+
+    <!--Property binding. Se indica con los [] o con el bind-->
+    <p><input [disabled]="false" type="text" value="hola" /></p>
+    <p><input [disabled]="activo" type="text" value="hola" /></p>
+    <p><input bind-disabled="false" type="text" value="hola" /></p>
+
+    <!--Botones-->
+    <button>Botón normal</button>
+    <ion-button>Botón iónico</ion-button>
+
+    <!--two way binding-->
+    <p><input [(ngModel)]="poblacion" type="text" />{{poblacion}}</p>
+    <p><input [ngModel]="codigoPostal" type="text" />{{codigoPostal}}</p>
+    
+    <ion-list>
+      <ion-list-header>Enlaces a páginas</ion-list-header>
+      <ion-item routerLink="/pagina1"> <!--Todo el item es un enlace-->
+        <ion-icon name="aperture"></ion-icon> <!--Los iconos están cogidos directamente de la documentación-->
+        <ion-label>Enlace a página 1</ion-label>
+        </ion-item >
+      <ion-item routerLink="/pagina2" >
+        <ion-icon name="airplane"></ion-icon>
+        <ion-label>Enlace página 2</ion-label>
+      </ion-item>
+    </ion-list>
+    <!--Lo mismo pero con ngFor-->
+    <ion-list >
+      <ion-list-header>Enlaces con ngFor</ion-list-header>
+      <!--El *ngFor.. ¡¡¡¡¡NO SE PUEDE OLVIDAR!!!!!-->
+      <ion-item *ngFor="let enlacesPaginas of enlacesPaginas" [routerLink]=enlacesPaginas.ruta> 
+        <ion-icon [name] = enlacesPaginas.icono></ion-icon> <!--cogemos la propiedad de ahí-->
+        <ion-label>{{enlacesPaginas.titulo}}</ion-label> <!--cogemos el string de ahí-->
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
